@@ -5,6 +5,14 @@ from subprocess import Popen, PIPE, STDOUT
 from proxy_txt_to_dict import proxy_txt_to_dict
 
 def checkIfPortIsOpen(ip, port, timeout):
+    """
+        Parameters:
+            ip [string]: ip address
+            port [string]: port number
+            timeout [string]: timeout in seconds
+        Check if a port is open on a given ip using netcat command.
+        Returns True if port is open, False otherwise.
+    """
     p=Popen(["nc", "-zvw{timeout}".format(timeout=timeout), ip, port], stdout=PIPE, stderr=STDOUT)
     output = p.stdout.read().decode('utf-8')
     if("succeeded!" not in output):

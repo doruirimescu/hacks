@@ -1,5 +1,8 @@
 
 def proxy_txt_to_dict():
+    """
+    Reads proxy.txt and returns a dictionary of ip:port
+    """
     file=open('proxy_list.txt','r')
     proxy_list=file.readlines()
     file.close()
